@@ -1,0 +1,62 @@
+/* Style for Visualization 3 */
+/* Giving the body background color*/
+body {
+  background: whitesmoke;
+  padding-top: 80px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom:80px;
+}
+/* Giving navbar background color */
+.navbar {
+  background-color: white;
+}
+/* Navbar Brand color */
+.navbar-default .navbar-brand {
+  color: white;
+  background-color: rgb(16, 156, 149);
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+/* Dropdown Button */
+.dropbtn {
+  background-color: white;
+  color: gray;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+/* Links inside the dropdown */
+.dropdown-menu a {
+  color: gray;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+/* end of navbar css*/
+
+/* formatting body of page */
+body h1{
+  color: rgb(16, 156, 149);
+  background-color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  padding:20px;
+}
+div {
+  background-color: white;
+}
+hr.style1{
+  border-top: 1px solid lightgray;
+}
+img{
+  float:inherit;
+}
+p {
+  text-align: center;
+  color: gray;
+  line-height: 40px;
+  font-size: 15px;
+  padding: 5px;
+}

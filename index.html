@@ -1,0 +1,72 @@
+<!-- HOMEPAGE -->
+<!DOCTYPE html>
+<html lang = 'en'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Visualization Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+    <link rel="stylesheet" href="index style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+</head>
+<!-- Navbar html -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Latitude</a>
+        </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plots<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Visualization%201.html">Max Temperature</a></li>
+                        <li><a href="Visualization%202.html">Humidity</a></li>
+                        <li><a href="Visualization%203.html">Cloudiness</a></li>
+                        <li><a href="Visualization%204.html">Wind Speed</a></li>
+                    </ul>
+                </li>
+                <li><a href="Comparison.html">Comparison</a></li>
+                <li><a href="Data.html">Data</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<body class='row'>
+    <div class="row justify-content-around">
+        <div class="col-sm-8">
+            <h1>Summary: Latitude vs. X</h1>
+            <hr class= "style1">
+            <br>
+            <img src="Resources/assets/images/Fig1.png" alt='max temperature' height="250" width="300">
+            <br>
+            <p class='purpose'>The purpose of this project was to analyze how weather changes as you get closer to the equator. To accomplish this analysis, 
+                we first pulled data from the OpenWeatherMap API to assemble a dataset on over 500 cities. 
+            </p>
+            <br>
+            <p class='purpose'>After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors we looked at included:
+                temperature, cloudiness, wind speed, and humidity. The site provides the source data and visualizations created as part of the analysis,
+                as well as explanations and descriptions of any trends and correlations witnessed.
+            </p>
+        </div>
+        <div class='col-sm-4 offset-sm-4'>
+            <h3>Visualizations</h3>
+            <hr class= "style2">
+            <img src="Resources/assets/images/Fig1.png" alt='max temp fig' height="220" width="208">
+            <img src="Resources/assets/images/Fig2.png" alt="humdity" height="220" width="208">
+            <img src="Resources/assets/images/Fig3.png" alt="cloudiness" height="220" width="208">
+            <img src="Resources/assets/images/Fig4.png" alt="wind speed" height="220" width="208">
+        </div>
+
+    </div>
+</body>
+</html>
