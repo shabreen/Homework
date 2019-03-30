@@ -1,113 +1,64 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <title>Latitude</title>
+  <title>D3Times</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/d3Style.css">
 
-  <!-- Bring in references -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>  
 </head>
 
-<body class="body-defaults">
-
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span> 
-                </button>
-
-                <a class="navbar navbar-default navbar-brand" href="index.html" target= "_blank">Latitude</a>
-            </div>
-
-    <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Plots <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="maxtemp.html" target= "_blank">Max Temp</a></li>
-                            <li><a class="dropdown-item" href="cloudiness.html" target= "_blank">Cloudiness</a></li>
-                            <li><a class="dropdown-item" href="humidity.html" target= "_blank">Humidity</a></li>
-                            <li><a class="dropdown-item" href="windspeed.html" target= "_blank">Wind Speed</a></li>
-                        </ul>
-                </li>
-                <li><a href="comparison.html" target= "_blank">Comparison</a></li>
-                <li><a href="data.html" target= "_blank">Data </a></li>
-            </ul>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <h1>D3Times</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12  col-md-9">
+        <div id="scatter">
+          <!-- We append our chart here. -->
         </div>
-    </nav> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12  col-md-9">
+        <div class="article">
+          <h2>Correlations Discovered Between Health Risks and Age, Income</h2>
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 
-  <div class="landing-card-large col-md-5">
-    <div class="card-title">Summary Latitude vs. x</div>
-    <hr/>
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 
-    <div class="card-body">
-        <img src="Instructions\Resources\assets\images\Fig1.png" class = "landing-image-large" alt="LandingImage" />
-
-        <p class="card-text">  The purpose of this project was to analyze how weather changes 
-            as you get closer to the equator. To accomplish this analysis, we
-            first pulled data from the OpenWeatherMap API to assemble a 
-            dataset on over 500 cities.
-        </p>
-
-        <p class="card-text"> After assembling the dataset, we used Matplotlib to plot various
-            aspects of the weather vs. latitude. Factors we looked at included:
-            temperature, cloudiness, wind speed, and humidity. This site provides the source data adn
-            visualizations created as part of the analysis, as well as explanations and descriptions of any
-            trends and correlations witnessed. 
-        </p>
-
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="landing-card-small col-md-4">
-    <div class="card-title">Visualizations</div>
-    <hr/>
-    <div class="card-body container-fluid">
-
-          <div class = "row">           
-            <div class = "column col-md-4">
-              <img src="Instructions\Resources\assets\images\Fig1.png" class = "landing-image-small" alt="Lat vs Max Temp"/>
-            </div>
-            <div class = "column col-md-4">
-              <img src="Instructions\Resources\assets\images\Fig3.png" class = "landing-image-small" alt="Lat vs Cloudiness"/>
-          </div>
-          </div>
-
-          <div class = "row">   
-            <div class = "column col-md-4">
-              <img src="Instructions\Resources\assets\images\Fig2.png" class = "landing-image-small" alt="Lat vs Humdity"/>
-            </div>
-            <div class = "column col-md-4">
-              <img src="Instructions\Resources\assets\images\Fig4.png" class = "landing-image-small" alt="Lat vs Wind Speed"/>  
-            </div>
-          </div>
-    </div>
+  <!-- Footer-->
+  <div id="footer">
+    <p>The Coding Boot Camp&copy;2016</p>
   </div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+  <script type="text/javascript" src="assets/js/app.js"></script>
 
 </body>
 
 </html>
-
-<!-- <div class="container">
-    <div class="row">
-      <div class="col-*-*"></div>
-      <div class="col-*-*"></div>
-    </div>
-    <div class="row">
-      <div class="col-*-*"></div>
-      <div class="col-*-*"></div>
-      <div class="col-*-*"></div>
-    </div>
-    <div class="row">
-      ...
-    </div>
-  </div> -->

@@ -1,138 +1,31 @@
-/* Set section styles */
-.body-defaults {
-  background-color: whitesmoke;
-  }
-
-/* Set Navbar styles */
-
-.navbar.navbar-default{
-  background-color: white;
-  color: darkslategrey;
-  width: 100%;
-  height: 80px;
-  font-size: 36px;
-  padding-right: 20px;
+.iframeContainer {
+  padding: 20px;
+  border: 1px solid #e3e3e3;
 }
 
-.navbar.navbar-default.navbar-brand{
-  width: 200px;
-  height: 76px;
-  background-color: cadetblue ;
-  color: white ;
-  font-family: 'Times New Roman', Times, serif ;
-  font-size: 42px ;
-  font-weight: bolder ;
-  vertical-align: middle;
+/* Sticky Footer rules (https://getbootstrap.com/examples/sticky-footer/) */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Padding bottom by footer height */
+  padding-bottom: 80px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; /* Set the fixed height of the footer here */
+  height: 10px;
+  padding-top: 20px;
+  padding-bottom: 40px;
   text-align: center;
-  line-height: 38px;
-  margin-left: 80px ;
-  margin-top: 1px ;
- }
-
- /* Horizontal line */
-hr {
-    display: block;
-    height: 1px;
-    border: 0px;
-    border-top: 1px solid black;
-    opacity: 0.25;
+  background-color: #f5f5f5;
 }
 
-/* Set card styles */
-.card {
-    background-color: white ;
-    padding-left: 25px ;
-    padding-top: 25px ;
-    padding-right: 25px ;
-    padding-bottom: 25px ;
-    margin-left: 25px ;
-    margin-top: 50px ;
-    margin-right: 25px ;
-    margin-bottom: 50px;
-    align-text: center ;
-  } 
-  
-  .landing-card-large {
-    width: 60%;
-    background-color: white ;
-    padding-left: 25px ;
-    padding-top: 25px ;
-    padding-right: 25px ;
-    padding-bottom: 25px ;
-    margin-left: 25px ;
-    margin-top: 50px ;
-    margin-right: 5px ;
-    margin-bottom: 50px;
-  } 
-
-  .landing-card-small {
-    background-color: white ;
-    padding-left: 10px ;
-    padding-top: 25px ;
-    padding-right: 10px ;
-    padding-bottom: 25px ;
-    margin-left: 20px ;
-    margin-top: 50px ;
-    margin-right: 0px ;
-    margin-bottom: 50px; 
-  } 
-
-  .landing-image-large{
-    height: 300px ;
-    width: 300px ;
-    float: left ;
-  }
-
-  .landing-image-small{
-    height: 200px ;
-    width: 200px ;
-    padding: 10px ;
-  }
-
-  .card-title{
-    font-family: 'Times New Roman', Times, serif ;
-    font-size: 52px ;
-    text-align: left;
-    color: cadetblue ;
-    font-weight: bolder ; 
-    vertical-align: bottom;
-    height: 2em ;
+#footer p {
+  margin: 0;
+  font-size: 16px;
 }
-
-.card-image-hdr{
-    font-family: 'Times New Roman', Times, serif ;
-    font-size: 36px ;
-    color: cadetblue ;
-    font-weight: bolder ; 
-    padding-left: 150px ;
-    }
-
-  .card-img-body{
-    height:800px ;
-    width: 1000px ;
-    padding-bottom: 25px ;
-    }
-
-  .card-img-body-sm{
-    height: 600px ;
-    width: 600px ;
-    padding-bottom: 0px ;
-    }
-
-  .card-text{
-    font-size: 24px ;
-    color: darkslategrey ;
-    text-align: left;
-    padding-bottom: 25px ;
-    }
-
-/* Styles that will ONLY be applied at screen sizes below 600  pixels 
-   Responsive columns - one column layout (vertical) on small screens */
-
-@media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-    }
-  }

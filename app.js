@@ -1,50 +1,97 @@
-// from data.js
-var tableData = data;
+// set up SVG chart
+var svgWidth = 900;
+var svgHeight = 500;
 
-// reference the html table body
-var tbody = d3.select("tbody");
+// create margins 
+var margin = {
+    top: 20,
+    right: 40,
+    bottom: 60,
+    left: 50
+};
+var width = svgWidth - margin.left - margin.right;
+var height = svgHeight - margin.top - margin.bottom;
 
-// Loop Through `data` and console.log each sightings object
-data.forEach(function(sightings) {
-    console.log(sightings);
-    // append one table row `tr` for each sightings object
-    var row = tbody.append("tr");
-    // `Object.entries` to console.log each sightings value
-    Object.entries(sightings).forEach(function([key, value]) {
-      console.log(key, value);
-      // Append a cell to the row for each value in the sightings object
-      var cell = tbody.append("td");
-      cell.text(value);
+// create an SVG wrapper
+// append svg group 
+// shift by left and top margins
+var svg = d3.select("#scatter")
+    .append("svg")
+    .attr("width", svgWidth)
+    .attr("height", svgHeight);
+
+var chartGroup = svg.append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+// import CSV data
+d3.csv("assets/data/data.csv")
+    .then(function(censusData) {
+
+    // parse data/cast as numbers
+    censusData.forEach(function(data) {
+        data.healthcare = +data.healthcare;
+        data.poverty = +data.poverty;
     });
-  });
 
-// Select the submit button
-var submit = d3.select("#filter-btn");
+    // create scale functions
+    var xLinearScale = d3.scaleLinear()
+        .domain([8, d3.max(censusData, d => d.poverty)])
+        .range([0, width]);
 
-submit.on("click", function() {
+    var yLinearScale = d3.scaleLinear()
+        .domain([0, d3.max(censusData, d => d.healthcare)])
+        .range([height, 0]);
 
-  // Prevent the page from refreshing
-  d3.event.preventDefault();
+    // create axis functions
+    var bottomAxis = d3.axisBottom(xLinearScale);
+    var leftAxis = d3.axisLeft(yLinearScale);
 
-  // Select the input element and get the raw HTML node
-  var inputValue = d3.select("#datetime").property('value');
+    //append them to the chart
+    chartGroup.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(bottomAxis);
 
-  //  clear text of the tds
-  d3.selectAll("td").property("textContent", "");
+    chartGroup.append("g")
+        .call(leftAxis);
 
-  // delete all table rows in the table body
-  d3.select("tbody").selectAll("tr").remove();
+    // create circles
+    var circlesGroup = chartGroup.selectAll("circle")
+        .data(censusData)
+        .enter()
+        .append("circle")
+        .attr("cx", d => xLinearScale(d.poverty))
+        .attr("cy", d => yLinearScale(d.healthcare))
+        .attr("r", "10")
+        .attr("fill", "lightblue")
+        .attr("opacity", ".5")
 
-  var filteredData = tableData.filter(function(sightings) {
-    return sightings.datetime === inputValue;
-  })
+    //append US state labels to each data point
+    chartGroup.selectAll(".label")
+        .data(censusData)
+        .enter()
+        .append("text")
+        .attr("class", "label")
+        .text(function(d) {
+            return d.abbr;
+        })
+        .attr("x", d => xLinearScale(d.poverty) - 7)
+        .attr("y", d => yLinearScale(d.healthcare) + 3)
+        .attr("font-size", "10px")
+        .attr("fill", "white")
+        .style("font-weight", "bold")
+        .attr("font_family", "sans-serif");
 
-  // append the values of the filtered date to the table
-  filteredData.forEach((sightings) => {
-  var row = tbody.append("tr");
-  Object.entries(sightings).forEach(([key, value]) => {
-      var cell = row.append("td");
-      cell.text(value);
-      })
-  });
+    //create axes labels
+    chartGroup.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left + 15)
+        .attr("x", 0 - (height / 1.5))
+        .attr("class", "axisText")
+        .text("Lacks Healthcare (%)");
+
+    chartGroup.append("text")
+        .attr("transform", `translate(${width / 2}, ${height + margin.top + 25})`)
+        .attr("class", "axisText")
+        .text("In Poverty (%)");
+
 });
