@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Data</title>
+
+  <!-- Bring in references -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>  
+</head>
+
+<body class="body-defaults">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+
+                <a class="navbar navbar-default navbar-brand" href="index.html" target= "_blank">Latitude</a>
+            </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Plots <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="maxtemp.html" target= "_blank">Max Temp</a></li>
+                            <li><a class="dropdown-item" href="cloudiness.html" target= "_blank">Cloudiness</a></li>
+                            <li><a class="dropdown-item" href="humidity.html" target= "_blank">Humidity</a></li>
+                            <li><a class="dropdown-item" href="windspeed.html" target= "_blank">Wind Speed</a></li>
+                        </ul>
+                </li>
+                <li><a href="comparison.html" target= "_blank">Comparison</a></li>
+                <li><a href="data.html" target= "_blank">Data </a></li>
+            </ul>
+        </div>
+    </nav> 
+
+    <div class="card">
+        <div class="card-title">Data</div>
+        <hr/>
+
+        <div class="card-body">
+            <p class="card-text"> The following includes all of the data used for plotting during this project. </p>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">City ID</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Cloudiness</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Humidity</th>
+                        <th scope="col">Latitude</th>
+                        <th scope="col">Longitude</th>
+                        <th scope="col">Max Temp</th>
+                        <th scope="col">Wind Speed</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>jacareacanga</td>
+                        <td>0</td>
+                        <td>BR</td>
+                        <td>1528902000</td>
+                        <td>62</td>
+                        <td>-6.22</td>
+                        <td>-57.76</td>
+                        <td>89.6</td>
+                        <td>6.93</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>kaitangata</td>
+                        <td>100</td>
+                        <td>NZ</td>
+                        <td>1528905304</td>
+                        <td>94</td>
+                        <td>-46.28</td>
+                        <td>169.85</td>
+                        <td>42.61</td>
+                        <td>5.64</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>goulburn</td>
+                        <td>20</td>
+                        <td>AU</td>
+                        <td>1528905078</td>
+                        <td>91</td>
+                        <td>-34.75</td>
+                        <td>149.72</td>
+                        <td>44.32</td>
+                        <td>10.11</td>
+                        </tr>
+                </tbody>
+            </table>
+
+        </div>  
+    </div> 
+
+    <div id='table-container'></div>
+     
+    <script>
+      CsvToHtmlTable.init({
+        csv_path: '/Instrutions/Resources/cities.csv',
+        element: 'table-container', 
+        allow_download: true,
+        csv_options: {separator: ',', delimiter: ''},
+        datatables_options: {"paging": false}
+      });
+    </script>
+
+    
+      
+</body>
+</html>
+
